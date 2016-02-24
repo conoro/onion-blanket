@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Catherine's Blanket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Catherine's Blanket</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+
+      <script>
+      function sendAjax(toggle) {
+        var request = new XMLHttpRequest();
+        request.open('POST', '/blanket', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send("state=" + toggle);
+      }
+      </script>
+
+<div class="btn-group" role="group">
+      <button id = "relayOnBtn" class="btn btn-success btn-block" type="submit" onclick="sendAjax('on')">Blanket On</button>
+      <button id = "relayOffBtn" class="btn btn-danger btn-block" type="submit" onclick="sendAjax('off')">Blanket Off</button>
+</div>
+
+    </div>
+  </body>
+</html>
